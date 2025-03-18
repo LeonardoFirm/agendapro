@@ -126,8 +126,8 @@ export default async function Dashboard() {
             <CardHeader>
               <div className="flex justify-between items-center">
                 <CardTitle>Próximos Agendamentos</CardTitle>
-                <Button variant="outline" size="sm">
-                  Ver Todos
+                <Button variant="outline" size="sm" asChild>
+                  <Link href="/dashboard/appointments">Ver Todos</Link>
                 </Button>
               </div>
               <CardDescription>Agendamentos para hoje e amanhã</CardDescription>

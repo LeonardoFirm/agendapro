@@ -15,6 +15,7 @@ function Calendar({
   className,
   classNames,
   showOutsideDays = true,
+  onSelect,
   ...props
 }: CalendarProps) {
   return (

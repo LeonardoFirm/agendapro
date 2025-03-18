@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import ClientSideNavbar from "@/components/client-side-navbar";
+
 import { createClient } from "../../../../supabase/client";
 import { Button } from "@/components/ui/button";
 import {
@@ -79,7 +79,6 @@ export default function NewClientPage() {
 
   return (
     <div className="min-h-screen bg-background">
-      <ClientSideNavbar user={null} />
       <main className="container mx-auto px-4 py-8">
         <div className="flex flex-col gap-8 max-w-3xl mx-auto">
           {/* Header Section */}

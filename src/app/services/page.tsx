@@ -1,6 +1,5 @@
 import { createClient } from "../../../supabase/server";
 import { redirect } from "next/navigation";
-import Navbar from "@/components/navbar";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -67,7 +66,6 @@ export default async function ServicesPage() {
 
   return (
     <div className="min-h-screen bg-background">
-      <Navbar />
       <main className="container mx-auto px-4 py-8">
         <div className="flex flex-col gap-8">
           {/* Header Section */}

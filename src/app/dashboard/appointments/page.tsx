@@ -1,7 +1,7 @@
 import { createClient } from "../../../../supabase/server";
 import { redirect } from "next/navigation";
-import DashboardNavbar from "@/components/dashboard-navbar";
 import { Button } from "@/components/ui/button";
+import Link from "next/link";
 import {
   Card,
   CardContent,
@@ -21,7 +21,6 @@ import {
   XCircle,
 } from "lucide-react";
 import { SubscriptionCheck } from "@/components/subscription-check";
-import Link from "next/link";
 
 export default async function AppointmentsPage() {
   const supabase = await createClient();
@@ -107,7 +106,6 @@ export default async function AppointmentsPage() {
 
   return (
     <SubscriptionCheck>
-      <DashboardNavbar />
       <main className="container mx-auto px-4 py-8">
         <div className="flex flex-col gap-8">
           {/* Header Section */}

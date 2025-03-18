@@ -1,6 +1,5 @@
 import { createClient } from "../../../../supabase/server";
 import { redirect } from "next/navigation";
-import DashboardNavbar from "@/components/dashboard-navbar";
 import { NotificationList } from "@/components/notifications/notification-list";
 import { SubscriptionCheck } from "@/components/subscription-check";
 
@@ -17,7 +16,6 @@ export default async function NotificationsPage() {
 
   return (
     <SubscriptionCheck>
-      <DashboardNavbar />
       <main className="container mx-auto px-4 py-8">
         <div className="flex flex-col gap-8 max-w-4xl mx-auto">
           {/* Header Section */}

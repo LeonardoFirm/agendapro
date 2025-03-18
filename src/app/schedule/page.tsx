@@ -1,8 +1,9 @@
 import { createClient } from "../../../supabase/server";
 import { redirect } from "next/navigation";
-import Navbar from "@/components/navbar";
+import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Calendar } from "@/components/ui/client-calendar";
+import { ScheduleCalendar } from "@/components/schedule-calendar";
 import {
   Card,
   CardContent,
@@ -35,7 +36,6 @@ export default async function SchedulePage() {
 
   return (
     <div className="min-h-screen bg-background">
-      <Navbar />
       <main className="container mx-auto px-4 py-8">
         <div className="flex flex-col gap-8">
           {/* Header Section */}
@@ -46,7 +46,9 @@ export default async function SchedulePage() {
                 Gerencie seus agendamentos e disponibilidade
               </p>
             </div>
-            <Button>Novo Agendamento</Button>
+            <Button asChild>
+              <Link href="/new-appointment">Novo Agendamento</Link>
+            </Button>
           </header>
 
           {/* Main Content */}
@@ -63,41 +65,56 @@ export default async function SchedulePage() {
                       variant="ghost"
                       className="w-full justify-start"
                       size="lg"
+                      asChild
                     >
-                      <CalendarIcon className="mr-2 h-5 w-5" />
-                      Calendário
+                      <Link href="/schedule">
+                        <CalendarIcon className="mr-2 h-5 w-5" />
+                        Calendário
+                      </Link>
                     </Button>
                     <Button
                       variant="ghost"
                       className="w-full justify-start"
                       size="lg"
+                      asChild
                     >
-                      <Clock className="mr-2 h-5 w-5" />
-                      Agendamentos
+                      <Link href="/dashboard/appointments">
+                        <Clock className="mr-2 h-5 w-5" />
+                        Agendamentos
+                      </Link>
                     </Button>
                     <Button
                       variant="ghost"
                       className="w-full justify-start"
                       size="lg"
+                      asChild
                     >
-                      <Users className="mr-2 h-5 w-5" />
-                      Clientes
+                      <Link href="/clients">
+                        <Users className="mr-2 h-5 w-5" />
+                        Clientes
+                      </Link>
                     </Button>
                     <Button
                       variant="ghost"
                       className="w-full justify-start"
                       size="lg"
+                      asChild
                     >
-                      <Settings className="mr-2 h-5 w-5" />
-                      Configurações
+                      <Link href="/dashboard/settings">
+                        <Settings className="mr-2 h-5 w-5" />
+                        Configurações
+                      </Link>
                     </Button>
                     <Button
                       variant="ghost"
                       className="w-full justify-start"
                       size="lg"
+                      asChild
                     >
-                      <BarChart className="mr-2 h-5 w-5" />
-                      Relatórios
+                      <Link href="/dashboard/reports">
+                        <BarChart className="mr-2 h-5 w-5" />
+                        Relatórios
+                      </Link>
                     </Button>
                   </div>
                 </CardContent>
@@ -111,11 +128,7 @@ export default async function SchedulePage() {
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <Calendar
-                    mode="single"
-                    selected={defaultDate}
-                    className="rounded-md border"
-                  />
+                  <ScheduleCalendar defaultDate={defaultDate} />
                 </CardContent>
               </Card>
             </div>

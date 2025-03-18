@@ -3,12 +3,13 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
+import { ThemeProvider } from "@/components/theme-provider";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Tempo - Modern SaaS Starter",
-  description: "A modern full-stack starter template powered by Next.js",
+  title: "AgendaPro - Sistema de Agendamento",
+  description: "Plataforma SaaS de agendamento de serviços para empresas",
 };
 
 export default function RootLayout({
@@ -17,11 +18,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="pt-BR" suppressHydrationWarning>
       <Script src="https://api.tempolabs.ai/proxy-asset?url=https://storage.googleapis.com/tempo-public-assets/error-handling.js" />
       <body className={inter.className}>
-        {children}
-        <TempoInit />
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+          {children}
+          <TempoInit />
+        </ThemeProvider>
       </body>
     </html>
   );
